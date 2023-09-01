@@ -1,51 +1,42 @@
+import java.time.Period;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
 
-        ArrayList<Integer> votiStudente1 = new ArrayList<>();
-        votiStudente1.add(20);
-        votiStudente1.add(18);
+        Student student1 = new Student(3254, "Marco", "Verdi", 22 / 12 / 1998);
+        Student student2 = new Student(6474, "Luca", "Rossi", 31 / 12 / 1995);
+        Student student3 = new Student(7958, "Giuseppe", "Brambilla", 10 / 12 / 1994);
+        Student student4 = new Student(2647, "Simone", "Cascino", 15 / 12 / 1996);
 
-        Student studente1 = new Student(1, "Mario", "Rossi", 1 / 2000, votiStudente1);
-        Student studente2 = new Student(2, "Luigi", "Bianchi", 15 / 5 / 2001);
-        Student studente3 = new Student(3, "Anna", "Verdi", 1 / 1999);
-        Student studente4 = new Student(4, "Laura", "Neri", 5 / 3 / 2002);
+        Professor professor1 = new Professor(4665, "Franco", "Costa", "Mathematics");
+        Professor professor2 = new Professor(5647, "Luca", "Romano", "English");
 
-        new Professor(101, "Prof", "Ingegnere", "Matematica");
-        new Professor(102, "Prof", "Scienziato", "Fisica");
+        Professor.assignGrade(student1, 30);
+        Professor.assignGrade(student2, 29);
+        Professor.assignGrade(student3, 19);
+        Professor.assignGrade(student4, 14);
 
-        Professor.assignGrade(studente1, 22);
-        Professor.assignGrade(studente2, 16);
-        Professor.assignGrade(studente3, 19);
-        Professor.assignGrade(studente4, 14);
+        Student[] students = new Student[]{
+                student1,
+                student2,
+                student3,
+                student4
+        };
 
-        double sogliaEccellenza = 18.0;
-        System.out.print("Studenti eccellenti: ");
-        if (studente1.isExcellent(sogliaEccellenza)) {
-            System.out.println(studente1.getName() + " " + studente1.getSurname());
+        Professor[] professors = new Professor[]{
+                professor1,
+                professor2
+        };
 
-        } else if (studente2.isExcellent(sogliaEccellenza)) {
-            System.out.println(studente2.getName() + " " + studente2.getSurname());
-
-        } else if (studente3.isExcellent(sogliaEccellenza)) {
-            System.out.println(studente3.getName() + " " + studente3.getSurname());
-
-        } else if (studente4.isExcellent(sogliaEccellenza)) {
-            System.out.println(studente4.getName() + " " + studente4.getSurname());
-        }
-
-        // Trovare lo studente con la media dei voti più alta
-        Student[] studenti = {studente1, studente2, studente3, studente4};
-        Student studenteConMediaPiuAlta = studenti[0];
-        for (int i = 1; i < studenti.length; i++) {
-            if (studenti[i].calculateGradeAverage() > studenteConMediaPiuAlta.calculateGradeAverage()) {
-                studenteConMediaPiuAlta = studenti[i];
+        for (Student student : students) {
+            if (student.isExcellent()) {
+                System.out.println("Student excellent:" + "\n" + student.getName() + "\n" + student.getSurname());
             }
         }
-        System.out.println("Studente con la media più alta: " + studenteConMediaPiuAlta.getName() + " " + studenteConMediaPiuAlta.getSurname());
+
+        Student studentWithTheHighestAverage = students[0];
+        System.out.println("student with the highest average: " + "\n" + studentWithTheHighestAverage.getName() + "\n" + studentWithTheHighestAverage.getSurname());
     }
-
 }
-
-

@@ -1,27 +1,32 @@
 import java.util.ArrayList;
-import java.util.List;
 
 public class Student {
-    private int codeStudent;
+    private long studentId;
     private String name;
     private String surname;
     private int dateOfBirth;
-    private ArrayList<Integer> elencoVoti;
+    private ArrayList<Integer> gradeList;
 
-    public Student(int codeStudent, String name, String surname, int dateOfBirth, ArrayList<Integer> elencoVoti) {
-        this.codeStudent = codeStudent;
+    public Student(long studentId, String name, String surname, int dateOfBirth, ArrayList<Integer> gradeList) {
+        this.studentId = studentId;
         this.name = name;
         this.surname = surname;
         this.dateOfBirth = dateOfBirth;
-        this.elencoVoti = elencoVoti;
+        this.gradeList = gradeList;
     }
 
-    public Student(int codeStudent, String name, String surname, int dateOfBirth) {
-        this(codeStudent, name, surname, dateOfBirth, new ArrayList<>());
+    public Student(long studentId, String name, String surname, int dateOfBirth) {
+        this.studentId = studentId;
+        this.name = name;
+        this.surname = surname;
+        this.dateOfBirth = dateOfBirth;
+        this.gradeList = new ArrayList<Integer>();
     }
 
-    public int getCodeStudent() {
-        return codeStudent;
+
+
+    public long getStudentId() {
+        return studentId;
     }
 
     public String getName() {
@@ -36,12 +41,11 @@ public class Student {
         return dateOfBirth;
     }
 
-    public List<Integer> getElencoVoti(int voto) {
-        return elencoVoti;
+    public ArrayList<Integer> getGradeList() {
+        return gradeList;
     }
-
-    public void setCodeStudent(int codeStudent) {
-        this.codeStudent = codeStudent;
+    public void setStudentId(long studentId) {
+        this.studentId = studentId;
     }
 
     public void setName(String name) {
@@ -56,23 +60,26 @@ public class Student {
         this.dateOfBirth = dateOfBirth;
     }
 
-    public void setElencoVoti(ArrayList<Integer> elencoVoti) {
-        this.elencoVoti = elencoVoti;
+    public void setGradeList(ArrayList<Integer> gradeList) {
+        this.gradeList = gradeList;
     }
 
     public double calculateGradeAverage() {
-        if (elencoVoti.isEmpty()) {
-           return 0.0;
+        if (gradeList.isEmpty()) {
+            return 0.0;
         }
-
         double sum = 0;
-        for (int voto : elencoVoti) {
+
+        for (double voto : gradeList) {
             sum += voto;
         }
-        return sum / elencoVoti.size();
+        return sum / gradeList.size();
     }
 
-    public boolean isExcellent(double soglia) {
-        return calculateGradeAverage() >= soglia;
+    public boolean isExcellent() {
+        if (calculateGradeAverage() >= 28) {
+            return true;
+        }
+        return false;
     }
 }

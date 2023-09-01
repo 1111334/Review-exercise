@@ -1,23 +1,25 @@
 public class Professor {
-    private long idProfessore;
+    private long professorId;
     private String name;
     private String surname;
-    private String JavaDev;
+    private String matter;
 
-
-    public Professor(long idProfessore, String name, String surname, String JavaDev) {
-        this.idProfessore = idProfessore;
+    public Professor(long professorId, String name, String surname, String matter) {
+        this.professorId = professorId;
         this.name = name;
         this.surname = surname;
-        this.JavaDev = JavaDev;
+        this.matter = matter;
     }
 
-    public Professor(int idProfessore, String nome, String cognome) {
-        this(idProfessore, nome, cognome, "");
+    public Professor(long professorId, String name, String surname) {
+        this.professorId = professorId;
+        this.name = name;
+        this.surname = surname;
+        this.matter = "";
     }
 
-    public long getIdProfessore() {
-        return idProfessore;
+    public long getProfessorId() {
+        return professorId;
     }
 
     public String getName() {
@@ -28,12 +30,12 @@ public class Professor {
         return surname;
     }
 
-    public String getJavaDev() {
-        return JavaDev;
+    public String getMatter() {
+        return matter;
     }
 
-    public void setIdProfessore(long idProfessore) {
-        this.idProfessore = idProfessore;
+    public void setProfessorId(long professorId) {
+        this.professorId = professorId;
     }
 
     public void setName(String name) {
@@ -44,17 +46,15 @@ public class Professor {
         this.surname = surname;
     }
 
-    public void setJavaDev(String javaDev) {
-        JavaDev = javaDev;
+    public void setMatter(String matter) {
+        this.matter = matter;
     }
 
-    public static void assignGrade(Student student, int voto) {
-        if (voto >= 18) {
-            student.getElencoVoti(voto);
-
-        } else {
-            System.out.println("Voto troppo basso per essere assegnato.");
+    public static void assignGrade(Student student, int grade) {
+        if (grade >= 18) {
+            student.getGradeList().add(grade);
+        }else {
+            System.out.println("hai fallito");
         }
-
     }
 }
