@@ -1,13 +1,14 @@
 import java.util.ArrayList;
+import java.util.Date;
 
 public class Student {
     private long studentId;
     private String name;
     private String surname;
-    private int dateOfBirth;
+    private Date dateOfBirth;
     private ArrayList<Integer> gradeList;
 
-    public Student(long studentId, String name, String surname, int dateOfBirth, ArrayList<Integer> gradeList) {
+    public Student(long studentId, String name, String surname, Date dateOfBirth, ArrayList<Integer> gradeList) {
         this.studentId = studentId;
         this.name = name;
         this.surname = surname;
@@ -15,14 +16,13 @@ public class Student {
         this.gradeList = gradeList;
     }
 
-    public Student(long studentId, String name, String surname, int dateOfBirth) {
+    public Student(long studentId, String name, String surname, Date dateOfBirth) {
         this.studentId = studentId;
         this.name = name;
         this.surname = surname;
         this.dateOfBirth = dateOfBirth;
         this.gradeList = new ArrayList<Integer>();
     }
-
 
 
     public long getStudentId() {
@@ -37,7 +37,7 @@ public class Student {
         return surname;
     }
 
-    public int getDateOfBirth() {
+    public Date getDateOfBirth() {
         return dateOfBirth;
     }
 
@@ -56,7 +56,7 @@ public class Student {
         this.surname = surname;
     }
 
-    public void setDateOfBirth(int dateOfBirth) {
+    public void setDateOfBirth(Date dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
 
