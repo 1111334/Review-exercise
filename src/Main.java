@@ -38,7 +38,7 @@ public class Main {
             }
         }
 
-        Student bestStudent = null; // Inizializziamo lo studente migliore come null
+        Student bestStudent = null;
 
         for (Student student : students) {
             if (student.isExcellent()) {

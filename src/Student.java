@@ -44,6 +44,7 @@ public class Student {
     public ArrayList<Integer> getGradeList() {
         return gradeList;
     }
+
     public void setStudentId(long studentId) {
         this.studentId = studentId;
     }

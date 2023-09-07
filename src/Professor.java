@@ -53,7 +53,7 @@ public class Professor {
     public static void assignGrade(Student student, int grade) {
         if (grade >= 18) {
             student.getGradeList().add(grade);
-        }else {
+        } else {
             System.out.println("hai fallito");
         }
     }
