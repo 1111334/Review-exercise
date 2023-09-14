@@ -38,17 +38,19 @@ public class Main {
             }
         }
 
-        Student bestStudent = null;
 
+        Student highestAverageStudent = null;
+        double highestAverage = 0.0;
         for (Student student : students) {
-            if (student.isExcellent()) {
-                bestStudent = student;
-                break; // Esci dal ciclo quando trovi il primo studente eccellente (media >= 28)
+            double average = student.calculateGradeAverage();
+            if (average > highestAverage) {
+                highestAverage = average;
+                highestAverageStudent = student;
             }
         }
-
-        if (bestStudent != null) {
-            System.out.println("Best student:\n" + bestStudent.getName() + "\n" + bestStudent.getSurname());
+        if (highestAverageStudent != null) {
+            System.out.println("Student with the highest grade average: "
+                    + highestAverageStudent.getName() + " " + highestAverageStudent.getSurname());
         }
     }
 }
